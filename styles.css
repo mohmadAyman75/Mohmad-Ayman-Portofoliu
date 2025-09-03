@@ -1,0 +1,195 @@
+/* Mohamed Ayman — static portfolio (no frameworks) */
+/* Colors: light cyan + light purple */
+:root{
+  --bg: #f7fbff;
+  --bg-alt: #f2f7ff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --brand: #7c8cff;   /* light purple */
+  --brand-2:#9ae6ff;  /* light cyan */
+  --brand-3:#5eead4;  /* teal accent */
+  --card: #ffffff;
+  --ring: rgba(124,140,255,.35);
+  --shadow: 0 10px 30px rgba(28,41,56,.08);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:linear-gradient(180deg,var(--bg),var(--bg-alt));
+}
+
+/* Utilities */
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.section{padding:80px 0}
+.section.alt{background:linear-gradient(180deg,var(--bg-alt),#fff)}
+h1,h2,h3{margin:0 0 14px}
+h1{font-size: clamp(28px, 5vw, 44px);line-height:1.1}
+h2{font-size: clamp(22px, 3.5vw, 32px)}
+h3{font-size: clamp(18px, 2.6vw, 22px)}
+.lead{font-size: clamp(16px, 2.2vw, 18px);color:var(--muted);max-width:52ch}
+
+/* Header / nav */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:saturate(1.2) blur(8px);
+  background:rgba(255,255,255,.65);
+  border-bottom:1px solid rgba(0,0,0,.04);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-weight:800;letter-spacing:.4px;color:#111;text-decoration:none}
+.nav-links{display:flex;gap:18px}
+.nav-links a{
+  text-decoration:none;color:#111;padding:10px 12px;border-radius:12px;
+}
+.nav-links a:hover{background:var(--brand-2);color:#045}
+.nav-toggle{display:none;background:none;border:0;padding:8px;border-radius:10px}
+.nav-toggle span{display:block;width:22px;height:2px;background:#111;margin:4px 0}
+
+/* Responsive nav */
+@media (max-width: 820px){
+  .nav-links{display:none;position:absolute;top:64px;right:0;left:0;background:#fff;padding:10px;border-bottom:1px solid #eee}
+  .nav-links.open{display:flex;flex-direction:column}
+  .nav-toggle{display:block}
+}
+
+/* Hero */
+.hero{padding:96px 0 64px;background:
+  radial-gradient(700px 300px at 10% -10%, rgba(124,140,255,.25), transparent 60%),
+  radial-gradient(600px 280px at 100% 10%, rgba(154,230,255,.35), transparent 60%)
+}
+.hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+.hero-asset{position:relative;height:260px}
+.blob{position:absolute;filter:blur(20px);opacity:.9;border-radius:50%}
+.blob.one{width:220px;height:220px;background:var(--brand);left:10%;top:8%}
+.blob.two{width:180px;height:180px;background:var(--brand-2);right:8%;bottom:6%}
+.avatar{
+  position:absolute;inset:0;margin:auto;height:150px;width:150px;border-radius:50%;
+  background:linear-gradient(145deg,#fff,var(--card));
+  box-shadow: var(--shadow), 0 0 0 10px var(--ring);
+  display:grid;place-items:center;font-weight:800;color:#334155;font-size:36px;
+}
+
+.cta{display:flex;gap:14px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border-radius:14px;padding:12px 18px;font-weight:600;text-decoration:none;cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#022}
+.btn.primary:hover{filter:saturate(1.1) brightness(1.03)}
+.btn.ghost{border:2px solid var(--brand);color:#1e2a3a;background:#fff}
+.btn.ghost:hover{background:rgba(124,140,255,.1)}
+
+/* Cards & chips */
+.card{
+  background:var(--card);border-radius:18px;box-shadow:var(--shadow);
+  padding:20px;border:1px solid rgba(0,0,0,.05);
+  transition: all ease,0.8s;
+}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.chips li{background:#eef6ff;border:1px solid #d8e9ff;color:#0b3b59;padding:8px 14px;border-radius:999px;font-weight:600;  transition: all ease,0.8s;}
+
+/* Contact */
+.contact-form{display:grid;gap:14px}
+.contact-form .grid{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+@media (max-width:720px){.hero-inner{grid-template-columns:1fr}.hero-asset{order:-1}.contact-form .grid{grid-template-columns:1fr}}
+label span{display:block;font-weight:600;margin:8px 0 6px}
+input,textarea{
+  width:100%;padding:12px 14px;border-radius:12px;border:1px solid #dde3ea;background:#fff;color:#111;
+  outline:none;box-shadow:0 1px 0 rgba(0,0,0,.02)
+}
+input:focus,textarea:focus{border-color:#a7b4ff;box-shadow:0 0 0 3px rgba(124,140,255,.18)}
+.social{display:flex;gap:14px;margin-top:18px}
+.social a{display:inline-flex;padding:10px;border-radius:12px;border:1px solid #e9eef7;color:#111}
+.social a:hover{background:#f4f7ff}
+
+/* Footer */
+.site-footer{padding:36px 0;border-top:1px solid #eee;background:#fff;color:#334155}
+
+/* Accessibility */
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:12px;top:12px;width:auto;height:auto;padding:8px 12px;background:#fff;border-radius:10px;box-shadow:var(--shadow)
+
+}
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.profile-square {
+  width: 320px;
+  height: 420px;
+  border-radius: 16px; /* مربعة بحواف ناعمة */
+  object-fit: cover;
+  position: relative;
+  z-index: 2; /* عشان تبقى فوق الألوان */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  margin-top: -10%;
+  margin-left:20%;
+  /* تبدأ مخفية تحت */
+  transform: translateY(100px);
+  opacity: 0;
+  animation: slideUp 1.5s ease-out forwards;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  filter: brightness(1.1) saturate(1.1) ;
+}
+
+/* الحركة */
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* 📱 الموبايل */
+@media (max-width: 600px) {
+  .profile-square {
+    width: 200px;
+    height: 260px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -5%;
+    display: none;
+  }
+}
+
+/* 📱 التابلت */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .profile-square {
+    width: 260px;
+    height: 340px;
+    margin-left: 10%;
+    margin-top: -8%;
+  }
+}
+
+/* 💻 اللابتوب & الديسكتوب */
+@media (min-width: 1025px) {
+  .profile-square {
+    width: 320px;
+    height: 420px;
+    margin-left: 20%;
+    margin-top: -10%;
+  }
+}
+
+.container p{
+  margin-left: 2%;
+}
+.c3{
+  background-color: #f4f9ff;
+  transition: all ease,0.8s;
+}
+
+.c3:hover,.card:hover,.chips li:hover{
+  scale: 1.05;
+}
