@@ -11,7 +11,7 @@ if (toggle) {
 function handleSubmit(e){
   e.preventDefault();
   const data = Object.fromEntries(new FormData(e.target).entries());
-  const mailto = `mailto:mohamed@example.com?subject=Portfolio%20Message%20from%20${encodeURIComponent(data.name)}&body=${encodeURIComponent(data.message + '\n\nPhone: ' + (data.phone||'N/A'))}`;
+  const mailto = `mailto:mohmdwe75@gmail.com?subject=Portfolio%20Message%20from%20${encodeURIComponent(data.name)}&body=${encodeURIComponent(data.message + '\n\nPhone: ' + (data.phone||'N/A'))}`;
   window.location.href = mailto;
   e.target.reset();
   return false;

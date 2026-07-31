@@ -152,6 +152,9 @@ input:focus,textarea:focus{border-color:#a7b4ff;box-shadow:0 0 0 3px rgba(124,14
 }
 /* 📱 الموبايل */
 @media (max-width: 600px) {
+  .hero-asset {
+    display: none;
+  }
   .profile-square {
     width: 200px;
     height: 260px;
