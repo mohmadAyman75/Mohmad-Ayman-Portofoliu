@@ -41,9 +41,9 @@ h3{font-size: clamp(18px, 2.6vw, 22px)}
 }
 .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
 .brand{font-weight:800;letter-spacing:.4px;color:#111;text-decoration:none}
-.nav-links{display:flex;gap:18px}
+.nav-links{display:flex;gap:10px}
 .nav-links a{
-  text-decoration:none;color:#111;padding:10px 12px;border-radius:12px;
+  text-decoration:none;color:#111;padding:10px 9px;border-radius:12px;
 }
 .nav-links a:hover{background:var(--brand-2);color:#045}
 .nav-toggle{display:none;background:none;border:0;padding:8px;border-radius:10px}
@@ -90,10 +90,24 @@ h3{font-size: clamp(18px, 2.6vw, 22px)}
 .chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
 .chips li{background:#eef6ff;border:1px solid #d8e9ff;color:#0b3b59;padding:8px 14px;border-radius:999px;font-weight:600;  transition: all ease,0.8s;}
 
+/* Experience and recognition */
+.experience-list{display:grid;gap:20px}
+.experience-meta,.honor-issuer{color:var(--muted);font-size:.95rem;font-weight:600}
+.honor-feature{display:grid;grid-template-columns:minmax(280px,.9fr) 1.1fr;gap:26px;align-items:center;margin-bottom:20px}
+.honor-certificate{display:block;width:100%;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 8px 24px rgba(28,41,56,.12)}
+.honors-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.honor-date{color:#5967d8;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.honor-card a,.honor-feature a{font-weight:700;color:#4655c7}
+#projects .card + .card{margin-top:20px}
+
 /* Contact */
 .contact-form{display:grid;gap:14px}
 .contact-form .grid{display:grid;gap:14px;grid-template-columns:1fr 1fr}
-@media (max-width:720px){.hero-inner{grid-template-columns:1fr}.hero-asset{order:-1}.contact-form .grid{grid-template-columns:1fr}}
+@media (max-width:720px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-asset{order:-1}
+  .contact-form .grid,.honor-feature,.honors-grid{grid-template-columns:1fr}
+}
 label span{display:block;font-weight:600;margin:8px 0 6px}
 input,textarea{
   width:100%;padding:12px 14px;border-radius:12px;border:1px solid #dde3ea;background:#fff;color:#111;
