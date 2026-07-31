@@ -255,12 +255,22 @@
         <h2>Honors &amp; Recognition</h2>
 
         <article class="card honor-feature">
-          <img
-            src="assets/images/helwan-projects-exhibition-certificate.jpg"
-            alt="Certificate of Appreciation from Helwan National University"
-            class="honor-certificate"
+          <button
+            type="button"
+            class="certificate-thumbnail"
+            data-certificate-trigger
+            aria-label="View the Certificate of Appreciation at full size"
+            aria-haspopup="dialog"
+            aria-controls="certificate-lightbox"
           >
-          <div>
+            <img
+              src="assets/images/helwan-projects-exhibition-certificate.jpg"
+              alt="Certificate of Appreciation from Helwan National University"
+              class="honor-certificate"
+            >
+            <span>Click to enlarge</span>
+          </button>
+          <div class="honor-details">
             <p class="honor-date">July 2026</p>
             <h3>Certificate of Appreciation — HNU Projects Exhibition</h3>
             <p class="honor-issuer">Issued by Helwan National University</p>
@@ -297,6 +307,22 @@
         </div>
       </div>
     </section>
+
+    <div
+      id="certificate-lightbox"
+      class="image-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Certificate of Appreciation preview"
+      hidden
+    >
+      <button type="button" class="lightbox-close" data-certificate-close aria-label="Close certificate preview">&times;</button>
+      <img
+        src="assets/images/helwan-projects-exhibition-certificate.jpg"
+        alt="Certificate of Appreciation from Helwan National University shown at full size"
+        class="lightbox-image"
+      >
+    </div>
 
     <!-- CV -->
     <section id="cv" class="section">

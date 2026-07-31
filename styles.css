@@ -93,12 +93,23 @@ h3{font-size: clamp(18px, 2.6vw, 22px)}
 /* Experience and recognition */
 .experience-list{display:grid;gap:20px}
 .experience-meta,.honor-issuer{color:var(--muted);font-size:.95rem;font-weight:600}
-.honor-feature{display:grid;grid-template-columns:minmax(280px,.9fr) 1.1fr;gap:26px;align-items:center;margin-bottom:20px}
-.honor-certificate{display:block;width:100%;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 8px 24px rgba(28,41,56,.12)}
+.honor-feature{display:block;margin-bottom:20px}
+.certificate-thumbnail{display:block;width:150px;margin:0 0 18px 2%;padding:0;border:0;background:transparent;color:#4655c7;font:inherit;font-size:.76rem;font-weight:700;text-align:left;cursor:zoom-in}
+.certificate-thumbnail span{display:block;margin-top:7px}
+.certificate-thumbnail:focus-visible{outline:3px solid var(--ring);outline-offset:5px;border-radius:10px}
+.honor-certificate{display:block;width:100%;border-radius:10px;border:1px solid #e5e7eb;box-shadow:0 6px 18px rgba(28,41,56,.12);transition:transform .2s ease}
+.certificate-thumbnail:hover .honor-certificate{transform:scale(1.04)}
 .honors-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .honor-date{color:#5967d8;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
 .honor-card a,.honor-feature a{font-weight:700;color:#4655c7}
 #projects .card + .card{margin-top:20px}
+
+.image-lightbox{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:28px;background:rgba(8,15,30,.88);cursor:zoom-out}
+.image-lightbox[hidden]{display:none}
+.lightbox-image{display:block;max-width:min(1100px,94vw);max-height:88vh;width:auto;height:auto;border-radius:12px;background:#fff;box-shadow:0 24px 70px rgba(0,0,0,.45);cursor:default}
+.lightbox-close{position:absolute;top:18px;right:24px;width:44px;height:44px;border:1px solid rgba(255,255,255,.35);border-radius:50%;background:rgba(15,23,42,.8);color:#fff;font-size:32px;line-height:1;cursor:pointer}
+.lightbox-close:hover,.lightbox-close:focus-visible{background:#fff;color:#111827;outline:none}
+body.lightbox-open{overflow:hidden}
 
 /* Contact */
 .contact-form{display:grid;gap:14px}
@@ -106,7 +117,10 @@ h3{font-size: clamp(18px, 2.6vw, 22px)}
 @media (max-width:720px){
   .hero-inner{grid-template-columns:1fr}
   .hero-asset{order:-1}
-  .contact-form .grid,.honor-feature,.honors-grid{grid-template-columns:1fr}
+  .contact-form .grid,.honors-grid{grid-template-columns:1fr}
+  .certificate-thumbnail{width:130px}
+  .image-lightbox{padding:18px}
+  .lightbox-close{top:12px;right:12px}
 }
 label span{display:block;font-weight:600;margin:8px 0 6px}
 input,textarea{

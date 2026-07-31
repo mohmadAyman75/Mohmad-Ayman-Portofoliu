@@ -18,3 +18,30 @@ function handleSubmit(e){
 }
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+const certificateTrigger = document.querySelector('[data-certificate-trigger]')
+const certificateLightbox = document.getElementById('certificate-lightbox')
+const certificateClose = document.querySelector('[data-certificate-close]')
+
+function openCertificate() {
+  certificateLightbox.hidden = false
+  document.body.classList.add('lightbox-open')
+  certificateClose.focus()
+}
+
+function closeCertificate() {
+  certificateLightbox.hidden = true
+  document.body.classList.remove('lightbox-open')
+  certificateTrigger.focus()
+}
+
+if (certificateTrigger && certificateLightbox && certificateClose) {
+  certificateTrigger.addEventListener('click', openCertificate)
+  certificateClose.addEventListener('click', closeCertificate)
+  certificateLightbox.addEventListener('click', (event) => {
+    if (event.target === certificateLightbox) closeCertificate()
+  })
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !certificateLightbox.hidden) closeCertificate()
+  })
+}
